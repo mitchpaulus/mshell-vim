@@ -1,7 +1,7 @@
-# Neobem Syntax Highlighting
+# `mshell` Syntax Highlighting
 
-This plugin provides syntax highlighting for [Neobem](https://neobem.io),
-a domain specific language that targets [EnergyPlus](https://energyplus.net/) idf files as the output.
+This plugin provides syntax highlighting for [`mshell`](https://github.com/mitchpaulus/mshell),
+an experimental concatenative shell.
 
 ## Installation
 
@@ -14,11 +14,11 @@ you can clone this repository directly to a location in the `packpath`:
 ```sh
 # Vim
 mkdir -p ~/.vim/pack/yourpackagename/start
-git clone https://github.com/mitchpaulus/neobem-vim.git ~/.vim/pack/yourpackagename/start/neobem-vim
+git clone https://github.com/mitchpaulus/mshell-vim.git ~/.vim/pack/yourpackagename/start/mshell-vim
 ```
 
 ```sh
 # Neovim
 mkdir -p ~/.local/share/nvim/site/pack/yourpackagename/start/
-git clone https://github.com/mitchpaulus/neobem-vim.git ~/.local/share/nvim/site/pack/yourpackagename/start/neobem-vim
+git clone https://github.com/mitchpaulus/mshell-vim.git ~/.local/share/nvim/site/pack/yourpackagename/start/mshell-vim
 ```
