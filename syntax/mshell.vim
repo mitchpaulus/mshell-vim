@@ -20,10 +20,13 @@ syntax keyword MshellBoolean true false
 syntax region MshellString start=/"/ end=/"\|$/ skip=/\\"/
 syntax region MshellComment start=/#/ end=/$/
 
+syntax match MshellArgument /\v\$[0-9]+/
+
 highlight default link MshellComment Comment
 highlight default link MshellString String
 highlight default link MshellKeyword Keyword
 highlight default link MshellBoolean Boolean
 highlight default link MshellCommand Function
+highlight default link MshellArgument Identifier
 
 let b:current_syntax = "mshell"
