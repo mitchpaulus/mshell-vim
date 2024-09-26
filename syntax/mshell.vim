@@ -18,12 +18,15 @@ syntax keyword MshellBoolean true false
 
 " Patterns are always interpreted as 'magic' is set.
 syntax region MshellString start=/"/ end=/"\|$/ skip=/\\"/
+
+syntax region MshellSingleQuoteString start=/'/ end=/'\|$/
 syntax region MshellComment start=/#/ end=/$/
 
 syntax match MshellArgument /\v\$[0-9]+/
 
 highlight default link MshellComment Comment
 highlight default link MshellString String
+highlight default link MshellSingleQuoteString String
 highlight default link MshellKeyword Keyword
 highlight default link MshellBoolean Boolean
 highlight default link MshellCommand Function
