@@ -15,6 +15,7 @@ endif
 syntax keyword MshellCommand dup
 syntax keyword MshellKeyword if loop break not and or
 syntax keyword MshellBoolean true false
+syntax keyword MshellDefKeyword def end
 
 " Patterns are always interpreted as 'magic' is set.
 syntax region MshellString start=/"/ end=/"\|$/ skip=/\\"/
@@ -28,6 +29,7 @@ highlight default link MshellComment Comment
 highlight default link MshellString String
 highlight default link MshellSingleQuoteString String
 highlight default link MshellKeyword Keyword
+highlight default link MshellDefKeyword Keyword
 highlight default link MshellBoolean Boolean
 highlight default link MshellCommand Function
 highlight default link MshellArgument Identifier
