@@ -20,6 +20,7 @@ syntax keyword MshellDefKeyword def end
 
 " Patterns are always interpreted as 'magic' is set.
 syntax region MshellString start=/"/ end=/"\|$/ skip=/\\"/
+syntax region MshellPath start=/`/ end=/`\|$/ skip=/\\`/
 
 syntax region MshellSingleQuoteString start=/'/ end=/'\|$/
 syntax region MshellComment start=/#/ end=/$/
@@ -33,6 +34,7 @@ syntax match MshellVarRetrieve /\v\@[a-zA-Z-]+/
 highlight default link MshellComment Comment
 highlight default link MshellString String
 highlight default link MshellSingleQuoteString String
+highlight default link MshellPath String
 highlight default link MshellKeyword Keyword
 highlight default link MshellDefKeyword Keyword
 highlight default link MshellBoolean Boolean
