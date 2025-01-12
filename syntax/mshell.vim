@@ -26,6 +26,7 @@ syntax region MshellSingleQuoteString start=/'/ end=/'\|$/
 syntax region MshellComment start=/#/ end=/$/
 
 syntax match MshellArgument /\v\$[0-9]+/
+syntax match MshellEnvVar /\v\$[a-zA-Z][_a-zA-Z0-9-]+!?/
 
 " Variables being set are varname!, and being retrieved are @varname
 syntax match MshellVarSet /\v[_a-zA-Z0-9-]+!/
@@ -40,6 +41,7 @@ highlight default link MshellDefKeyword Keyword
 highlight default link MshellBoolean Boolean
 highlight default link MshellCommand Function
 highlight default link MshellArgument Identifier
+highlight default link MshellEnvVar Identifier
 highlight default link MshellVarSet Define
 highlight default link MshellVarRetrieve Type
 
