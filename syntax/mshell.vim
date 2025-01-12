@@ -28,8 +28,8 @@ syntax region MshellComment start=/#/ end=/$/
 syntax match MshellArgument /\v\$[0-9]+/
 
 " Variables being set are varname!, and being retrieved are @varname
-syntax match MshellVarSet /\v[a-zA-Z-]+!/
-syntax match MshellVarRetrieve /\v\@[a-zA-Z-]+/
+syntax match MshellVarSet /\v[_a-zA-Z0-9-]+!/
+syntax match MshellVarRetrieve /\v\@[_a-zA-Z0-9-]+/
 
 highlight default link MshellComment Comment
 highlight default link MshellString String
