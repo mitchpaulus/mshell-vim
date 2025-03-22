@@ -32,6 +32,8 @@ syntax match MshellEnvVar /\v\$[a-zA-Z][_a-zA-Z0-9-]+!?/
 syntax match MshellVarSet /\v[_a-zA-Z0-9-]+!/
 syntax match MshellVarRetrieve /\v\@[_a-zA-Z0-9-]+/
 
+syntax match MshellDateTime /\v\d{4}-\d{2}-\d{2}(T\d{2}(:\d{2}(:\d{2})?)?)?/
+
 highlight default link MshellComment Comment
 highlight default link MshellString String
 highlight default link MshellSingleQuoteString String
@@ -44,6 +46,7 @@ highlight default link MshellArgument Identifier
 highlight default link MshellEnvVar Identifier
 highlight default link MshellVarSet Define
 highlight default link MshellVarRetrieve Type
+highlight default link MshellDateTime Special
 
 
 let b:current_syntax = "mshell"
