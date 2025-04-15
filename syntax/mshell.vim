@@ -19,7 +19,7 @@ syntax keyword MshellBoolean true false
 syntax keyword MshellDefKeyword def end
 
 " Patterns are always interpreted as 'magic' is set.
-syntax region MshellString start=/"/ end=/"/ skip=/\\"/
+syntax region MshellString start=/"/ end=/"/ skip=/\\"\|\\\\/
 syntax region MshellPath start=/`/ end=/`\|$/ skip=/\\`/
 
 syntax region MshellSingleQuoteString start=/'/ end=/'/
