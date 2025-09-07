@@ -34,7 +34,7 @@ syntax match MshellVarRetrieve /\v\@[_a-zA-Z0-9-]+/
 
 syntax match MshellDateTime /\v\d{4}-\d{2}-\d{2}(T\d{2}(:\d{2}(:\d{2})?)?)?/
 
-syntax region MshellStringInterpolation start=/{/ end=/}/ contains=MshellString,MshellCommand,MshellArgument,MshellEnvVar,MshellVarSet,MshellVarRetrieve,MshellDateTime
+syntax region MshellStringInterpolation start=/{/ end=/}/ contains=MshellString,MshellCommand,MshellArgument,MshellEnvVar,MshellVarSet,MshellVarRetrieve,MshellDateTime contained
 
 highlight default link MshellComment Comment
 highlight default link MshellString String
