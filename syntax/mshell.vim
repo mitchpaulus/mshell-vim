@@ -19,7 +19,8 @@ syntax keyword MshellBoolean true false
 syntax keyword MshellDefKeyword def end
 
 " Patterns are always interpreted as 'magic' is set.
-syntax region MshellString start=/\v\$?"/ end=/"/ skip=/\\"\|\\\\/ contains=MshellStringInterpolation
+syntax region MshellString start=/\v"/ end=/"/ skip=/\\"\|\\\\/
+syntax region MshellStringInterpolationString start=/\v\$"/ end=/"/ skip=/\\"\|\\\\/ contains=MshellStringInterpolation
 syntax region MshellPath start=/`/ end=/`\|$/ skip=/\\`/
 
 syntax region MshellSingleQuoteString start=/'/ end=/'/
@@ -37,6 +38,7 @@ syntax match MshellDateTime /\v\d{4}-\d{2}-\d{2}(T\d{2}(:\d{2}(:\d{2})?)?)?/
 syntax region MshellStringInterpolation start=/{/ end=/}/ contains=MshellString,MshellCommand,MshellArgument,MshellEnvVar,MshellVarSet,MshellVarRetrieve,MshellDateTime contained
 
 highlight default link MshellComment Comment
+highlight default link MshellStringInterpolationString String
 highlight default link MshellString String
 highlight default link MshellSingleQuoteString String
 highlight default link MshellPath String
