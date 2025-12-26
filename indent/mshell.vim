@@ -22,8 +22,8 @@ function! MyLangIndent(lnum) abort
     let l:ind -= l:sw
   endif
 
-  " Indent if previous line ends with opener or contains 'def'
-  if l:prev =~# '[([{]\s*$' || l:prev =~# '\<def\>\s*$'
+  " Indent if previous line ends with opener or starts a def line
+  if l:prev =~# '[([{]\s*$' || l:prev =~# '^\s*def\>'
     let l:ind += l:sw
   endif
 
