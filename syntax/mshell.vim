@@ -14,7 +14,9 @@ endif
 
 " syntax keyword MshellCommand dup .s swap drop rot over nip tuck append w wl we wle len args nth glob x cd str findReplace lines split wsplit join map 
 " syntax keyword MshellCommand each del insert export stdin
-syntax keyword MshellKeyword if loop break not and or
+syntax keyword MshellKeyword if loop break not and or else
+syntax match MshellKeyword /\velse\*/
+syntax match MshellKeyword /\v\*if/
 syntax keyword MshellBoolean true false
 syntax keyword MshellDefKeyword def end
 

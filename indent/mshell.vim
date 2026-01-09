@@ -3,7 +3,7 @@ let b:did_indent = 1
 
 " Reindent when opening newlines and when typing a closer
 setlocal indentexpr=MyLangIndent(v:lnum)
-setlocal indentkeys+=0),0],0},o,O,=end
+setlocal indentkeys+=0),0],0},o,O,=end,=else,=else\*
 
 function! MyLangIndent(lnum) abort
   let l:prevlnum = prevnonblank(a:lnum - 1)
@@ -17,13 +17,13 @@ function! MyLangIndent(lnum) abort
 
   let l:ind = indent(l:prevlnum)
 
-  " Dedent if this line starts with a closer token or 'end'
-  if l:this =~# '^\s*[])}]' || l:this =~# '^\s*end\>'
+  " Dedent if this line has a closer token, 'end', or 'else'
+  if l:this =~# '[])}]' || l:this =~# '\<end\>' || l:this =~# '\<else\>' || l:this =~# '\v(^|[^A-Za-z0-9_])else\*($|[^A-Za-z0-9_])'
     let l:ind -= l:sw
   endif
 
-  " Indent if previous line ends with opener or starts a def line
-  if l:prev =~# '[([{]\s*$' || l:prev =~# '^\s*def\>'
+  " Indent if previous line ends with opener or contains def/if/*if/else tokens
+  if l:prev =~# '[([{]\s*$' || l:prev =~# '\<def\>' || l:prev =~# '\<if\>' || l:prev =~# '\v(^|[^A-Za-z0-9_])\*if($|[^A-Za-z0-9_])' || l:prev =~# '\<else\>' || l:prev =~# '\v(^|[^A-Za-z0-9_])else\*($|[^A-Za-z0-9_])'
     let l:ind += l:sw
   endif
 
