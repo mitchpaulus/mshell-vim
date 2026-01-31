@@ -22,8 +22,17 @@ function! MyLangIndent(lnum) abort
     let l:ind -= l:sw
   endif
 
-  " Indent if previous line ends with opener or contains def/if/*if/else tokens
-  if l:prev =~# '[([{]\s*$' || l:prev =~# '\<def\>' || l:prev =~# '\<if\>' || l:prev =~# '\v(^|[^A-Za-z0-9_])\*if($|[^A-Za-z0-9_])' || l:prev =~# '\<else\>' || l:prev =~# '\v(^|[^A-Za-z0-9_])else\*($|[^A-Za-z0-9_])'
+  " Indent if previous line ends with opener or contains def/if/*if/else tokens,
+  " or contains a dot-suffixed literal block starter (e.g., "map.").
+  let l:has_dot_block = l:prev =~# '\v(^|[^_a-zA-Z0-9-])[-_a-zA-Z0-9]+\.(\s|$)'
+  let l:dot_block_closed = l:prev =~# '\v(^|[^_a-zA-Z0-9-])[-_a-zA-Z0-9]+\.\s+.{-}\<end\>(\s|$)'
+  if l:prev =~# '[([{]\s*$' ||
+        \ l:prev =~# '\<def\>' ||
+        \ l:prev =~# '\<if\>' ||
+        \ l:prev =~# '\v(^|[^A-Za-z0-9_])\*if($|[^A-Za-z0-9_])' ||
+        \ l:prev =~# '\<else\>' ||
+        \ l:prev =~# '\v(^|[^A-Za-z0-9_])else\*($|[^A-Za-z0-9_])' ||
+        \ (l:has_dot_block && !l:dot_block_closed)
     let l:ind += l:sw
   endif
 
