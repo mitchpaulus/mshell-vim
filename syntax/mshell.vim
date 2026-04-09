@@ -19,6 +19,7 @@ syntax match MshellKeyword /\velse\*/
 syntax match MshellKeyword /\v\*if/
 syntax keyword MshellBoolean true false
 syntax keyword MshellDefKeyword def end
+syntax keyword MshellVer VER
 
 " Patterns are always interpreted as 'magic' is set.
 syntax region MshellString start=/\v"/ end=/"/ skip=/\\"\|\\\\/
@@ -53,6 +54,7 @@ highlight default link MshellEnvVar Identifier
 highlight default link MshellVarSet Define
 highlight default link MshellVarRetrieve Type
 highlight default link MshellDateTime Special
+highlight default link MshellVer Special
 
 
 let b:current_syntax = "mshell"
